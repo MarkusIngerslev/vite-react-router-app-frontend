@@ -1,0 +1,30 @@
+form {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5em;
+}
+
+form input,
+form label {
+    display: block;
+    width: 90%; /* reducere bredden af input-elementerne */
+    margin: 0 auto; /* center input-elementerne */
+}
+
+form label {
+    margin-top: 1em;
+}
+
+form input {
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+form button {
+    width: 30%;
+    margin: 1em auto; /* center knappen */
+    margin-bottom: 2em;
+    align-self: center; /* center knappen */
+}

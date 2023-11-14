@@ -1,0 +1,25 @@
+nav {
+    position: fixed;
+    top: 2em;
+    left: 32%;
+    margin: 1em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #fff;
+    color: #000;
+}

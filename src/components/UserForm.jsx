@@ -5,7 +5,7 @@ export default function UserForm() {
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
-    const [age, setAge] = useState("");
+    const [age, setAge] = useState(0);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -14,20 +14,30 @@ export default function UserForm() {
 
         resetFrom();
 
-        await fetch("http://localhost:3000/users", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(user),
-        });
+        try {
+            const response = await fetch("http://localhost:3000/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
+            });
 
-        console.log("User added to database");
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            console.log("User added to database");
+        } catch (error) {
+            console.error("Error adding user to database:", error.message);
+        }
     };
 
     const resetFrom = () => {
         setName("");
         setUsername("");
         setEmail("");
-        setAge("");
+        setAge(0);
     };
 
     return (
@@ -44,7 +54,7 @@ export default function UserForm() {
                     Email: <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </label>
                 <label>
-                    Alder: <input type="text" value={age} onChange={(e) => setAge(e.target.value)} />
+                    Alder: <input type="number" value={age} onChange={(e) => setAge(e.target.value)} />
                 </label>
                 <button type="submit">Tilføj ny bruger</button>
             </form>

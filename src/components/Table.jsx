@@ -1,7 +1,5 @@
-// import React, { useState, useEffect } from "react";
-
 export default function Table({ data }) {
-    console.log("REcieved data prop in Table component:", data);
+    console.log("Recieved data prop in Table component:", data);
 
     return (
         <div>
@@ -17,13 +15,16 @@ export default function Table({ data }) {
                 </thead>
                 <tbody>
                     {data.map((user) => {
-                        <tr key={user.id}>
-                            <td>{user.id}</td>
-                            <td>{user.name}</td>
-                            <td>{user.username}</td>
-                            <td>{user.email}</td>
-                            <td>{user.age}</td>
-                        </tr>;
+                        // console.log("User:", user);
+                        return (
+                            <tr key={user.id}>
+                                <td>{user.id}</td>
+                                <td>{user.name}</td>
+                                <td>{user.username}</td>
+                                <td>{user.email}</td>
+                                <td>{user.age}</td>
+                            </tr>
+                        );
                     })}
                 </tbody>
             </table>

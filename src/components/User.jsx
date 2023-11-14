@@ -10,6 +10,7 @@ export default function User() {
                 const res = await fetch("http://localhost:3000/users");
                 const data = await res.json();
                 setData(data);
+                // console.log(data);
             };
             fetchData();
         } catch (err) {

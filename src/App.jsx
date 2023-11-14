@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import UserDataPage from "./pages/UserDataPage";
 import NewUserPage from "./pages/NewUserPage";
 import Nav from "./components/Nav";
+import "./App.css";
 
 export default function App() {
     return (
